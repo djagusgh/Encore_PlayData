@@ -1,0 +1,132 @@
+﻿hr/hr
+========================================
+		SELECT 기본
+========================================
+
+1. 급여가 15000 이상인 직원들의 이름, 급여, 부서id를 조회하시오.
+select first_name 이름, salary 급여, department_id 부서id
+from employees
+where salary >= 15000;
+
+
+2. 직원 중에서 연봉이 170000 이상인 직원들의 이름, 연봉을 조회하시오.
+   연봉은 급여(salary)에 12를 곱한 값입니다.
+
+select first_name, salary * 12 연봉
+from employees
+where salary * 12 >= 170000;
+
+
+3. 직원 중에서 부서id가 없는 직원의 이름과 급여를 조회하시오.
+
+select first_name 이름, salary 급여
+from employees
+where department_id is NULL;
+
+
+4. 94년 이전에 입사한 직원의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where hire_date < '94/01/01';
+
+
+-- 논리연산자 -- 
+1. 80, 50 번 부서에 속해있으면서 급여가 13000 이상인 직원의 이름, 급여, 부서id
+를 조회하시오.
+
+select first_name 이름, salary 급여, department_id 부서id
+from employees
+where salary >= 13000 and department_id in (50, 80)
+order by department_id desc;
+
+
+2. 95년 이후에 입사한 직원들 중에서 급여가 1300 이상 20000 이하인 직원들의 
+이름, 급여, 부서id, 입사일을 조회하시오.
+
+select first_name 이름, department_id 부서id, hire_date 입사일 
+from employees 
+where hire_date > '95/01/01' and salary between 1300 and 20000;
+
+-- SQL 비교연산자 --
+1. 80, 50 번 부서에 속해있으면서 급여가 13000 이상인 직원의 이름, 급여, 부서id
+를 조회하시오.
+// 위와 동일..?
+select first_name 이름, salary 급여, department_id 부서id
+from employees
+where salary >= 13000 and department_id in (50, 80)
+order by department_id desc;
+
+
+
+2. 95년 이후에 입사한 직원들 중에서 급여가 1300 이상 30000 이하인 직원들의 
+이름, 급여, 부서id, 입사일을 조회하시오.
+
+select first_name 이름, department_id 부서id, hire_date 입사일 
+from employees 
+where hire_date > '95/01/01' and salary between 1300 and 20000;
+
+3. 95년도 입사한 직원의 정보만 출력하시오.
+
+select * 
+from employees
+where hire_date between '95/01/01' and '95/12/31';
+
+
+4. 이름이 D로 시작하는 직원의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where first_name like 'D%';
+
+
+5. 12월에 입사한 직원의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where substr(hire_date, 4, 2) = '12';
+
+6. 이름에 le 가 들어간 직원의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where first_name like '%le%';
+
+
+7. 이름이 m으로 끝나는 직원의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where first_name like '%m';
+
+8. 이름의 세번째 글자가 r인 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where substr(first_name, 3, 1) = 'r';
+
+9. 커미션을 받는 직원의 이름, 커미션, 급여를 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where commission_pct is not NULL;
+
+10. 커미션을 받지 않는 직원의 이름, 커미션, 급여를 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where commission_pct is NULL;
+
+
+
+11. 90년대에 입사해서 30, 50, 80 번 부서에 속해있으면서, 
+급여를 5000 이상 17000 이하를 받는 직원을 조회하시오. 
+단, 커미션을 받지 않는 직원들은 검색 대상에서 제외시키며, 먼저 입사한 직원이 
+먼저 출력되어야 하며 입사일이 같은 경우 급여가 많은 직원이 먼저 출력되록 하시오.
+
+select first_name 이름
+from employees
+where (substr(hire_date, 1, 2) between 90 and 99)
+	   and salary between 5000 and 17000
+	   and commission_pct is not NULL
+order by hire_date asc, salary desc;

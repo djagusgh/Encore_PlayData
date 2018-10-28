@@ -1,0 +1,113 @@
+﻿========================================
+		SubQuery -DB반 엄현호
+========================================
+
+1. 'IT'부서에서 근무하는 직원들의 이름, 급여, 입사일을 조회하시오.
+
+select first_name 이름, salary 급여, hire_date 입사일
+from employees
+where department_id = (select department_id
+					   from departments
+					   where department_name = 'IT');
+					    
+2. 'Alexander' 와 같은 부서에서 근무하는 직원의 이름과 부서id를 조회하시오.
+
+/*
+select first_name
+from employees
+where first_name = 'Alexander';
+=> Alexander가 2명이기 때문에, where 절에서 = 이 아닌 in을 써야 한다!
+*/
+
+select first_name 이름, department_id 부서id
+from employees
+where department_id in (select department_id
+					   from employees
+					   where first_name = 'Alexander');
+
+
+3. 직원들의 이름, 입사일, 부서명을 조회하시오.
+단, 부서가 없는 직원이 있다면 그 직원정보도 출력결과에 포함시킨다.
+그리고 부서가 없는 직원에 대해서는 '<부서없음>' 이 출력되도록 한다.
+(outer-join , nvl() )
+	  
+select e.first_name 이름, e.hire_date 입사일, nvl(d.department_name, '<부서없음>') 부서명
+from departments d, employees e
+where d.department_id(+) = e.department_id;
+
+4. 직원의 직책에 따라 월급을 다르게 지급하려고 한다.
+직책에 'Manager'가 포함된 직원은 급여에 0.5를 곱하고
+나머지 직원들에 대해서는 원래의 급여를 지급하도록 한다. 
+적절하게 조회하시오. (decode)
+
+select e.first_name 이름, j.job_title 직책, decode(substr(job_title, -7),'Manager',e.salary*0.5, e.salary) 월급
+from employees e, jobs j
+where e.job_id = j.job_id;
+
+5. 각 부서별로 최저급여를 받는 직원의 이름과 부서id, 급여를 조회하시오.
+
+select first_name 이름, department_id 부서id, salary 급여
+from employees
+where (department_id, salary) in (select department_id, min(salary)
+								  from employees
+								  group by department_id);
+
+6. 80번부서의 평균급여보다 많은 급여를 받는 직원의 이름, 부서id, 급여를 조회하시오.
+
+select first_name 이름, department_id 부서id, salary 급여
+from employees
+where salary > (select avg(salary)
+				from employees
+				where department_id = 80);
+
+7. 'South San Francisco'에 근무하는 직원의 최소급여보다 급여를 많이 받으면서 
+50 번부서의 평균급여보다 많은 급여를 받는 직원의 이름, 급여, 부서명, 
+부서id를 조회하시오.
+
+select e.first_name 이름, e.salary 급여, d.department_name 부서명, d.department_id 부서id
+from employees e, departments d
+where d.department_id = e.department_id
+	 and e.salary > (select min(e2.salary) 
+				  from employees e2, departments d2, locations l
+	  			  where e2.department_id = d2.department_id 
+					    and d2.location_id = l.location_id
+					    and l.city = 'South San Francisco')
+	 and e.salary > (select avg(salary) 
+				  from employees
+	  			  where department_id = 50);
+
+
+8. 각 직급별(job_title) 인원수를 조회하되 사용되지 않은 직급이 있다면 해당 직급도
+출력결과에 포함시키시오. 그리고 직급별 인원수가 3명 이상인 직급만 출력결과에 포함시키시오.
+
+select j.job_title 직급, count(e.first_name) 인원수
+from employees e, jobs j
+where e.job_id(+) = j.job_id
+group by j.job_title
+having count(e.first_name) >= 3;
+
+9. 각 부서별 최대급여를 받는 직원의 이름, 부서명, 급여를 조회하시오.
+
+select first_name 이름, department_id 부서id, salary 급여
+from employees
+where (department_id, salary) in (select department_id, max(salary)
+								  from employees
+								  group by department_id);
+
+
+10. 직원의 이름, 부서id, 급여를 조회하시오. 그리고 직원이 속한 해당 부서의 
+최소급여를 마지막에 포함시켜 출력 하시오.
+  
+/*
+	스칼라 쿼리(select 문에 subquery가 들어가는 형태의 쿼리문)
+*/
+
+select first_name 이름, department_id 부서id, salary 급여, (
+    select min(salary) from employees
+    where department_id = e.department_id) 부서최소급여
+from employees e
+
+
+ 
+
+

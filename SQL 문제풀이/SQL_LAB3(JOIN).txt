@@ -1,0 +1,58 @@
+﻿========================================
+		JOIN
+========================================
+
+1.직원들의 이름과 직급명(job_title)을 조회하시오.
+
+select e.first_name 이름, j.job_title 직급명
+from employees e, jobs j
+where e.job_id = j.job_id;
+
+2.부서이름과 부서가 속한 도시명(city)을 조회하시오.
+
+select d.department_name, l.city
+from departments d, locations l
+where d.location_id = l.location_id;
+
+3. 직원의 이름과 근무국가명을 조회하시오. (employees, departments, locations,countries)
+
+select e.first_name 이름, c.country_name 근무국가명
+from employees e, departments d, locations l, countries c
+where e.department_id = d.department_id and
+	  d.location_id = l.location_id and
+	  l.country_id = c.country_id;
+	  
+4. 직책(job_title)이 'manager' 인 사람의 이름, 직책, 부서명을 조회하시오.
+
+ select e.first_name 이름, j.job_title 직책, d.department_name 부서명
+ from employees e, jobs j, departments d
+ where d.department_id = e.department_id
+	   and e.job_id = j.job_id
+	   and lower(j.job_title) like '%manager%';
+ 	   
+5. 직원들의 이름, 입사일, 부서명을 조회하시오. 
+
+select e.first_name 이름, e.hire_date 입사일, d.department_name 부서명
+from departments d, employees e
+where d.department_id = e.department_id;
+-- (number of row : 106 부서가 없는 직원은 표시가 안됩니다.: 6번 문제와 구별)
+ 
+<6,7 : outer join>
+ 
+6. 직원들의 이름, 입사일, 부서명을 조회하시오.
+단, 부서가 없는 직원이 있다면 그 직원정보도 출력결과에 포함시킨다.
+
+select e.first_name 이름, e.hire_date 입사일, d.department_name 부서명
+from departments d, employees e
+where d.department_id(+) = e.department_id;
+-- (number of row : 107)
+
+7. 직원의 이름과 직책(job_title)을 출력하시오.
+단, 사용되지 않는 직책이 있다면 그 직책정보도 출력결과에 포함시키시오.
+
+select first_name 이름, job_title 직책
+from employees e, jobs j
+where e.job_id(+) = j.job_id; -- employees 쪽이 비어있을 가능성 있음 -> 여기에 + 붙이자!
+
+
+
