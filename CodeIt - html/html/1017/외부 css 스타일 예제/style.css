@@ -1,0 +1,25 @@
+
+.content {
+
+	background-color: #eee;
+	border-radius : 20px;
+	margin-bottom : 50px;
+	padding : 40px;
+	width : 400px;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+
+h1 {
+	text-align : center;
+	font-size : 28px;
+	color : blue;
+}
+
+img {
+	text-align : right;
+	margin-left : auto;
+	margin-right : auto;
+}
+
