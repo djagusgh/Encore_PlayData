@@ -1,1 +1,59 @@
-styles.css
+	@font-face {
+	src: url("../fonts/BMJUA_otf.otf");
+	font-family: "Jua";
+	}
+
+	* {
+		box-sizing : border-box;
+		font-family : "Jua";
+		text-align : center;
+		color : #58595B;
+		border-radius : 10px;
+	}
+
+	body {
+		background-color: #F0E8D9;
+	}
+
+	h1 {
+		font-size : 64px;
+		margin : 75px 0px 30px 0px;
+		
+	}
+
+	h2 {
+		font-size : 32px;
+		margin-bottom : 75px;
+	}
+
+	h3 {
+		font-size : 32px;
+	}
+
+	p {
+		margin : 20px 0px 16px 0px;
+		padding : 0px 20px 0px 20px;
+		font-size : 16px;
+		text-align : left;
+	}
+
+	.illustration {
+		background-color: white;
+		width : 300px;
+		height : 390px;
+		margin-left : auto;
+		margin-right : auto;
+		margin-bottom : 50px;
+	}
+
+	.illustration img {
+		width: 300px;
+		height: 200px;
+	}
+
+	.illustration a {
+		color : #0000EE;
+		text-decoration: none;
+		font-size : 16px;
+		padding : 0px 0px 20px 0px;
+	}
