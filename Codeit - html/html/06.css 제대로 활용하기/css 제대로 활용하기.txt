@@ -1,0 +1,48 @@
+css 상속
+- border, padding은 상속되지 않음
+
+css 우선 순위
+1. 인라인 스타일
+2. id 많을 수록
+3. class, attribute, pseudo-class가 많을 수록!
+4. 요소(또는 가상 요소)가 많은 순서
+
+
+css 단위들 
+
+1. px : 절대적인 값, 다른 요소의 값에 영향을 받지 않음
+2. rem : 상대적인 값, <html>의 font-size에만 영향을 받음
+	(ex: 2rem은 font-size 2배 크기 )
+
+	html {
+  font-size: 20px;
+}
+
+.container {
+  padding-top: 2rem; /* html의 font-size * 2 = 40px */
+  background-color: lime;
+}
+
+3. em : 상대적 값, 자기 자신의 font-size 기준
+		자기 자신의 font-size 정해주지 않았을 때는 
+		요소에서 상속받은 값을 기준으로!
+
+html {
+  font-size: 20px;
+}
+
+.container {
+  /* 자동으로 html의 font-size 20px을 상속받음 */
+  padding-top: 2em; /* 자신의 font-size * 2 = 40px */
+  background-color: lime;
+}
+
+4. % 
+% 역시 상대적인 값이겠죠? %는 어느 항목에서 쓰이냐에 따라 다른 기준이 적용됩니다.
+예를 들어 font-size에서 %가 쓰일 경우, 상위 요소의 font-size에 곱해주는 방식으로 계산합니다.
+
+
+%가 margin이나 padding의 단위로 사용될 경우, 상위 요소의 width를 기준으로 계산됩니다.
+
+재미있는 점은 margin-top이나 padding-bottom 등 세로(상하) 속성를 조절할 때에도 상위 요소의 height가 아닌 width를 기준으로 계산된다는 것입니다.
+

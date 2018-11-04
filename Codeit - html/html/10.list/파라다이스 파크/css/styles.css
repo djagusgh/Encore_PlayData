@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  min-width: 768px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* side navbar */
+
+#side-navbar {
+  background-color: black;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  text-align : center;
+}
+
+#side-navbar #logo {
+	width : 60%;
+	margin-top : 30px;
+	margin-bottom: 50px;
+	display: inline-block;
+}
+
+#side-navbar ul li {
+	text-align: left;
+}
+#side-navbar ul li:not(:last-child) {
+	margin-bottom: 30px;
+}
+#side-navbar ul li:last-child {
+	margin-bottom : 60px;
+}
+
+#side-navbar ul a{
+	color: white;
+	list-style: none;
+	text-decoration: none;
+}
+#side-navbar .fb_twit {
+	margin-top: 25px;
+	display: inline-block;
+}
+#side-navbar .fb_twit #fb {
+	margin-right: 6.5px;
+	width: 30px;
+}
+
+#side-navbar .fb_twit #twit {
+	margin-left: 6.5px;
+	width: 30px;
+}
+
+/* main */
+
+#main {
+  margin-left: 250px;
+}
+
+#main .hero-header {
+  text-align: center;
+  background-image: url("../images/hero_header.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 750px;
+  line-height: 750px;
+}
+
+#main .info {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#main h1 {
+  margin: 0;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 38px;
+}
+
+#main a {
+  padding: 10px 40px;
+  border: 2px solid white;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}

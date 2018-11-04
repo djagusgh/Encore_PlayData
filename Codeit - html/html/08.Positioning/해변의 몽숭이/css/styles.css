@@ -1,0 +1,10 @@
+img {
+  display: block;
+  margin: 0 auto;  
+}
+
+#monkey {
+	position : relative;
+	bottom : 100px;
+	left : 200px;
+}
