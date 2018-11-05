@@ -21,6 +21,11 @@ body {
 	display: inline-block;
 }
 
+#side-navbar ul {
+  margin : 0px;
+  padding-left: 22px;
+}
+
 #side-navbar ul li {
 	text-align: left;
 }

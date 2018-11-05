@@ -1,0 +1,128 @@
+*{
+  box-sizing: border-box;
+}
+
+@font-face {
+  src: url("../fonts/BMJUA_otf.otf");
+  font-family: Jua;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 네비게이션 바 */
+#navbar {
+  padding: 0 20px;
+  border-bottom: 1px solid #eee;
+  border-radius : 5px;
+
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.50);
+  height: 60px;
+}
+
+#navbar ul {
+  line-height: 60px;
+  margin: 0px;
+}
+
+#navbar ul li {
+  list-style: none;
+  text-align: right;
+  float: right;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 0px 20px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+#navbar ul li:hover {
+  background-color: #eeeeee;
+}
+
+#navbar .clearfix{
+  clear : left;
+}
+
+.result {
+  background-color : red;
+}
+.result img {
+	margin-top: 50px;
+}
+
+#logo {
+  font-family: serif;
+  float: left;
+  line-height : 60px;
+}
+
+#logo img {
+  vertical-align: middle;
+}
+
+/* 본문 내용 */
+
+.intro {
+  text-align:center;
+}
+
+.intro h1 {
+  display: inline-block;
+  size: 64px;
+  margin-left:10px;
+}
+
+.intro img {
+  width: 70px;
+  margin-right:10px;
+}
+
+.container {
+  text-align: center;
+}
+
+.company_home {
+  display: inline-block;
+  width : 980px;
+  height:  300px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  overflow: scroll;
+  border : 1px solid black;
+  text-align : center;
+}
+
+
+.news_sns_stock {
+  display: inline-block;
+  width: 300px; 
+  height: 300px;
+  border: 1px solid black;
+  margin-top: 25px;
+  overflow: scroll;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.image_container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.image_container a:not(:last-child) {
+  margin-right : 20px;
+}
+
+.image_container img {
+  width:50px;
+}
+
+
