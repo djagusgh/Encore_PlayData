@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 992px;
+  font-family: "Helvetica";
+}
+
+/* navbar */
+.navbar {
+	height: 60px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.navbar #logo {
+	/*background-color: orange;*/
+	line-height: 60px; /* 세로 정렬 */
+}
+
+.navbar #logo img {
+	vertical-align: middle; /* 세로 정렬 */
+}
+
+.navbar #menu {
+	float: right;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar #menu li {
+	float: left;
+	margin-left: 50px;
+	line-height: 60px; /* 세로 정렬 */
+}
+
+.navbar #menu li a {
+	color: #545454;
+	font-size: 13px;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+/* hero header */
+.hero-header {
+	height: 450px;
+	background-image: url("../images/hero_header.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+
+/* products */
+
+.product {
+	width: 225px;
+	text-align: center;
+	display: block; /* class: block, a tag : inline-block */
+	color: #545454;
+	text-decoration: none;
+	float: left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom: 80px;
+}
+
+.product-list{
+	width:735px; /*245 * 3 */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.product-name {
+	margin-top:20px;
+	margin-bottom: 4px;
+}
+
+.products h3 {
+	font-size: 24px;
+	color: #545454;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.clearfix {
+	clear: both;
+}
+
+/* footer */
+
+.footer {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 80px;
+}
+
+.footer a {
+	margin-left: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+
+}
