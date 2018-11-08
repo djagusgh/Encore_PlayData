@@ -120,6 +120,11 @@ body {
 		width: 50%;
 		height: 180px;
 	}
+
+	#div5 a {
+		line-height: 180px;
+	}
+
 	#div6 {
 		width: 50%;
 		height: 180px;
@@ -152,6 +157,11 @@ body {
 		width: 25%;
 		height: 175px;
 	}
+
+	#div5 a {
+		line-height: 175px;
+	}
+
 	#div6 {
 		width: 25%;
 		height: 175px;
