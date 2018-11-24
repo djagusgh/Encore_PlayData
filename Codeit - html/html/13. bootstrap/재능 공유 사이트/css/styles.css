@@ -1,0 +1,60 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+#cooking {
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	background-position: left center;
+}
+
+#makeup {
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	background-position: center top;
+
+}
+#guitar {
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	background-position: center center;
+
+}
+
+
+
+.carousel-inner .carousel-caption {
+  transform: translateY(-50%);
+  bottom: 0;
+  top: 50%;
+}
+
+.carousel-inner .carousel-caption h5 {
+	
+	font-size: 32px;
+	margin: 0px 0px 18px 0px;
+	vertical-align: middle;
+}
+
+.carousel-inner .carousel-caption p {
+	font-size: 22px;
+	margin: 0px 0px 48px 0px;
+}
+
+.carousel-inner .carousel-caption a {
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 30px;
+	font-size: 16px;
+	color: white;
+	background-color: #5900E7;
+}
