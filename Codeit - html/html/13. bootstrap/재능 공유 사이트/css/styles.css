@@ -29,7 +29,10 @@ body {
 
 }
 
+.navbar-brand {
+	vertical-align: middle;
 
+}
 
 .carousel-inner .carousel-caption {
   transform: translateY(-50%);
@@ -53,8 +56,66 @@ body {
 	border-radius: 5px;
 	text-decoration: none;
 	margin: 0px 0px 0px 0px;
-	padding: 10px 30px;
+	padding: 10px 30px; 
 	font-size: 16px;
 	color: white;
 	background-color: #5900E7;
+}
+.container .alert {
+	width: 100%;
+	margin-top : 50px;
+	margin-bottom: 16px;
+}
+
+.container {
+	margin-bottom: 50px;
+}
+
+.container .row .col-sm-12 {
+	padding-left: 15px;
+	padding-right: 15px;	
+	margin-bottom: 20px;
+}
+
+.container .row .col-sm-12 .temp-container {
+	box-shadow: 0 2px 4px 0 rgb(0,0,0,0.15);
+}
+
+.container .row .col-sm-12 .inner-container {
+	padding: 10px;
+}
+
+.container .row .col-sm-12 h3 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: #4A4A4A;
+}
+
+.container .row .class-image {
+	width : 100%;
+}
+.container .row .user {
+	width: 20px;
+	height: 20px;
+}
+
+.container .row p {
+	display: inline-block;
+	font-size: 13px;
+	color: #4A4A4A;
+	margin-bottom: 0px;
+}
+
+
+@media(min-width: 992px){
+
+	.container .row .col-sm-12 h3 {
+		font-size: 16px;
+	}
+
+	.container .row p {
+		font-size: 12px;
+	}
+
+
 }
