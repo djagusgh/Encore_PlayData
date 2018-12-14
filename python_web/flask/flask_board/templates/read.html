@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>글 읽기</title>
+    <script>
+        // server-side에서 모든 일이 다 일어난 후, 자바스크립트 코드가 마지막으로 실행됨!
+        // 
+
+        function go_update() {
+            location.href ='/update/{{b.num}}' // href : 주소 이동
+        }
+
+        function go_delete() {
+            location.href = '/delete/{{b.num}}'
+        }
+    
+    </script>
+</head>
+<body>
+    <h1> 글 읽기 </h1>
+    <table width="600" border="1">
+        <tr>
+            <th>글쓴이</th>
+            <td> {{b.writer}} </td>
+            <th> 날짜 </th>
+            <td> {{b.regdate}} </td>
+            <th> 조회 </th>
+            <td> {{b.hit}}</td>
+        </tr>
+        <tr>
+            <td colspan="6"><p>{{b.content}}</p></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <!-- onclick : javascript -->
+                <input type="button" value="수정" onclick="go_update()">
+                <input type="button" value="삭제" onclick="go_delete()">
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

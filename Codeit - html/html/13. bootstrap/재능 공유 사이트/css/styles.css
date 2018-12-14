@@ -6,33 +6,36 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-#cooking {
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	background-position: left center;
-}
-
-#makeup {
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	background-position: center top;
-
-}
-#guitar {
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	background-position: center center;
-
-}
-
 .navbar-brand {
 	vertical-align: middle;
 
 }
+
+.carousel-item {
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+}
+
+#cooking {	
+
+	background-image: url(../images/cooking.jpg);
+	background-position: center top;
+
+}
+
+#makeup {
+	background-image: url(../images/makeup.jpg);
+	background-position: center top;
+
+}
+#guitar {
+	
+	background-image: url(../images/guitar.jpg);
+	background-position: center center;
+
+}
+
 
 .carousel-inner .carousel-caption {
   transform: translateY(-50%);
@@ -85,10 +88,15 @@ body {
 	padding: 10px;
 }
 
+.container .row .col-sm-12 a {
+	text-decoration: none;
+}
+
 .container .row .col-sm-12 h3 {
 	margin-bottom: 10px;
 	font-size: 18px;
 	color: #4A4A4A;
+	
 }
 
 .container .row .class-image {
@@ -116,6 +124,4 @@ body {
 	.container .row p {
 		font-size: 12px;
 	}
-
-
 }

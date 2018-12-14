@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>글 수정</title>
+    <script>
+        function check() { // 내용 체크
+            if(form1.writer.value == ""){
+                alert('작성자를 꼭 입력해주세요.');
+                form1.writer.focus();
+                return;
+            }
+            if(form1.pwd.value == ""){
+                alert('비밀번호를 꼭 입력해주세요.');
+                form1.pwd.focus();
+                return;
+            }
+            if(form1.title.value == ""){
+                alert('제목을 꼭 입력해주세요.');
+                form1.title.focus(); 
+            }
+            if(form1.content.value == ""){
+                alert('내용을 꼭 입력해주세요.');
+                form1.content.focus();
+                return;
+            }
+            
+            form1.submit();
+
+        } // check
+    </script>
+</head>
+<body>
+    <h1>글 수정</h1>
+    <form name="form1" action="/update" method="POST">
+        <table width="500" border="1">
+            <tr>
+                <th>작성자</th>
+                <td>
+                    <input type="hidden" name="num" value="{{b.num}}">
+                    <input type="text" name="writer" value="{{b.writer}}">
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" value="{{b.title}}"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" cols="30" rows="10">{{b.content}}</textarea></td>
+                <!-- textarea 태그 안 내용 -> 붙여서 쓰자! -->
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="수정" onclick="check()"> <!-- type: submit하면 무조건 제출되버림;-->
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>방명록 쓰기</title>
+</head>
+<body>
+    <h1>방명록 쓰기</h1>
+    <form action="write" method="post">
+        <table width="70%" border="1">
+            <tr> <!-- tr -> table row, td -> table data -->
+                <td>이름</td>
+                <td><input type="text" name="writer"></td>
+            </tr>
+            <tr>
+                <td>제목</td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td><textarea name="content" cols="30" rows="10">
+                </textarea></td>
+            </tr>
+            <td colspan="2">
+                <input type="submit" value="쓰기">
+                <input type="reset" value="취소">
+            </td>
+
+
+        </table>
+    </form>
+    
+</body>
+</html>

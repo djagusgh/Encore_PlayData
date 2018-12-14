@@ -1,0 +1,152 @@
+
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+	src: url("../fonts/BMHANNAPro.ttf");
+	font-family: "Pro";
+}
+
+body {
+	background-color: #E1e1c9;
+
+}
+
+.contents {
+	text-align : center;
+	font-family: "Pro";
+}
+
+.contents h1 {
+	font-size: 28px;
+	margin-bottom: 30px;
+}
+
+.contents .red {
+	display : inline;
+	color : red;
+}
+
+.contents .blue {
+	display: inline;
+	color : #3E74C7;
+}
+
+.contents p {
+	font-size : 20px;
+	margin-bottom: 10px;
+}
+
+.contents .sub-contents {
+	padding: 0px 15px 0px 15px;
+	text-align: left;
+	display: inline-block;
+}
+
+.contents #second {
+	margin-bottom:10px;
+}
+
+.result {
+	padding : 10px 30px 10px 30px;
+
+	margin-top: 10px;
+	margin-bottom : 30px;
+	background-color: #CCB996
+}
+
+.result #title {
+	font-family: "Pro";
+	font-size:20px;
+}
+
+@media(min-width:720px){
+
+	.contents h1 {
+		font-size: 36px;
+	}
+
+}
+
+.container {
+	margin : 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.container .row{
+	margin-bottom: 30px;
+}
+
+.container #chulgen {
+	background-color: #ee7764;
+	border-radius: 5px;
+
+}
+.container #toegeun {
+	background-color : #8ebcb9;
+	border-radius: 5px;
+}
+
+.col-sm-12 {
+
+	height : 300px;
+	padding-bottom : 20px;
+	margin-bottom : 30px;
+		
+}
+
+.col-sm-12 h2 {
+	margin-top: 10px;
+	text-align : center;
+	font-size : 18px;
+	font-family: "Pro";
+
+}
+
+
+/* 07~08 시 지도 */
+#map_b4a02d6cf6904d7092c3ddb2c62600e2 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+
+/* 08~09 시 지도 */
+#map_829491c6734b46b483ed818b4a0474cd {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+
+/* 18~19 시 지도 */
+#map_da9d12f668214ba58fe68080b168b8f4 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+
+/* 19~20 시 지도 */
+#map_db6ba79ca0394e4187fa519d4e3fca4a {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+
+/* 20~21 시 지도 */
+#map_5d17968c05ab4682b69b40141692665e {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
