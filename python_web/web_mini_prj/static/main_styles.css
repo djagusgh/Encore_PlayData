@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    src: url("BMJUA_ttf.ttf");
+    font-family : "Jua";
+}
+
+@font-face {
+    src: url("BMHANNAPro.ttf");
+    font-family: "Pro";
+}
+
+@font-face {
+    src: url("BMHANNAAir_ttf.ttf");
+    font-family: "Air";
+}
+
+.navbar {
+    font-family: "Jua";
+}
+
+.navbar .navbar-brand {
+    font-size: 22px;
+}
+
+.navbar #com {
+    color: #8D4315;
+}
+
+.nav-item b {
+    color: black;
+}
+
+.helper {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.main-image {
+    
+    height: 650px;
+    background: url("../static/coffee_main.PNG");
+    background-size: cover;
+    background-position: center center;
+    text-align:center;
+
+}
+
+.main-image .container {
+    display: inline-block;
+    text-align: center;
+    font-family: "Jua";
+    color: #424242;
+    vertical-align: middle;
+}
+
+.container input {
+    
+    border-radius: 5px;
+    width: 300px;
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.container button {
+    font-family: "Pro";
+    color: #424242;
+    width: 50px;
+}
+
+
+.container input,button {
+    border: None;
+    font-family : "Air";
+    border-radius: 3px;
+    height: 40px;
+}
+
+#encore {
+    font-size: 42px;
+    text-align: center;
+    font-family: "Pro";
+    
+    
+}
+#encore span {
+    color: #8D4315;
+}
+
+#loc {
+    font-size: 32px;
+}
+
+
+
+.footer {
+    background-color: #424242;
+    vertical-align: middle;
+    height: 100px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+
+.footer p {
+    color:#D8D8D8;
+    font-family: "Air";
+    margin-bottom: 5px;
+
+}
+
+.fb_twit {
+    text-align:center;
+}
+.fb_twit img {
+    width: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+}

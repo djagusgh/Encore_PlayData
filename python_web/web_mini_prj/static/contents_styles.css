@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    src: url("BMJUA_ttf.ttf");
+    font-family : "Jua";
+}
+
+@font-face {
+    src: url("BMHANNAPro.ttf");
+    font-family: "Pro";
+}
+
+@font-face {
+    src: url("BMHANNAAir_ttf.ttf");
+    font-family: "Air";
+}
+
+
+.navbar {
+    font-family: "Jua";
+    margin-bottom: 15px;
+}
+
+.navbar .navbar-brand {
+    font-size: 22px;
+}
+
+.navbar #com {
+    color: #8D4315;
+}
+
+.nav-item b {
+    color: black;
+}
+
+/* button-container */
+
+.button-container {
+    margin-bottom: 20px;
+}
+
+.button-container .button {
+
+}
+
+/* map-container */
+
+.map-container {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 500px;
+    height: 375px;
+    float: right;
+    margin-right: 20px;
+    background-color: orange;
+    padding: 10px;
+    overflow: hidden;
+
+}
+
+#map_8a88fc9429fb456ba2bc8f0700debb54 {
+    position: relative;
+    width: 100.0%;
+    height: 100.0%;
+    left: 0.0%;
+    top: 0.0%;
+    }
+
+
+/* contents-container */
+
+/* .contents-container {
+    display: inline-block;
+    width: 300px;
+
+}
+
+.contents-container .inner-container1 {
+    float: left;
+    background-color: orange;
+    width: 50%;
+
+}
+
+.contents-container .inner-container2 {
+    float: left;
+    background-color: green;
+    width: 50%;
+} */
+
+#good {
+    margin-bottom: 0px;
+}

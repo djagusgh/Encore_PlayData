@@ -65,8 +65,6 @@ def read(num):
     conn.close()
     return render_template('read.html', b= b)
 
-    return 'read OK'
-
 @app.route('/update/<int:num>') # methods = ['GET'] : 생략 가능
 def updateform(num):
     print('num ====', num)
@@ -95,10 +93,10 @@ def update():
     '''
     datas = (title, content, writer, num, pwd)
     conn = mysql.connect()
-    cur = conn.cursor()
+    cur= conn.cursor()
     cur.execute(sql, datas)
     conn.commit()
-    conn.close()
+    conn.close() 
     # return 'update ok'
     return redirect('/list')
 
@@ -119,8 +117,6 @@ def delete():
     conn.close()
     return redirect('/list')
     
-
-
 if __name__ == '__main__':
     app.run(debug=True)
 
