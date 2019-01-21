@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel = "stylesheet" href="../static/contents_styles.css">
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.3.4/dist/leaflet.css"/>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />   
+    <title>내용</title>
+</head>
+<body>
+    <!-- import jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <!-- ---------------------- -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"> 별점 카페 <span id="com">.com</span> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">카페 <b> talk </b> </a>
+                    </li>
+                  </ul>
+              
+                  <ul class="navbar-nav">
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="join.html" ><span class="sr-only">(current)</span></a>
+                    </li> -->
+                     <li class="nav-item">
+                      <a class="nav-link" href="/" target="_self">로그 아웃</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+
+        <!-- 내용 담는 클래스-->
+
+        {% for cafe in cafes %}
+        
+        <div class="card" style="width: 50%; margin-left:auto; margin-right: auto; margin-bottom: 30px;">
+            <div class="card-body">
+            
+            <h5 class="card-title" name="each_cafe_name">{{cafe.num}}.{{cafe.CAFE_NAME}}</h5>
+
+                <table class="tg">
+                  <tr>
+                    <td class="tg-0pky">장소</td>
+                    <td class="tg-0pky">{{cafe.ADDRESS}}</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">평점</td>
+                    <td class="tg-0pky">{{cafe.STAR_RATING}} / 5 점</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">대표 메뉴</td>
+                    <td class="tg-0pky">{{cafe.MENU}}</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">전화번호</td>
+                    <td class="tg-0pky">{{cafe.PHONE_NUMBER}}</td>
+                  </tr>
+                </table>
+            <p>
+                <a href="/contents/review_write/{{cafe.num}}/{{cafe.CAFE_NAME}}" class="btn btn-primary">후기 작성</a> 
+                
+                <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapse{{cafe.num}}" role="button" aria-expanded="false" aria-controls="multiCollapse{{cafe.num}}">후기</a>
+            </p>
+            
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapse{{cafe.num}}">
+                    <div class="card card-body">
+                        <table>
+                            <tr>
+                                <th> 닉네임 </th>
+                                <th> 평점 </th>
+                                <th> 리뷰 </th>
+                            </tr>
+                            {% for review in reviews if review.num == cafe.num %}
+                            <tr>
+                                <td> {{review.NICK_NAME}}</td>
+                                <td> {{review.SCORE}} </td>
+                                <td> {{review.REVIEW}} </td>
+                            </tr>
+                            {% endfor %}
+                        </table>     
+                    </div>
+                    </div>
+                </div>
+            </div>    
+            
+        </div>
+        </div> 
+        {% endfor %}
+
+        <script>
+        
+        
+            // var map_8a88fc9429fb456ba2bc8f0700debb54 = L.map(
+            //     'map_8a88fc9429fb456ba2bc8f0700debb54', {
+            //     center: [37.5502, 126.982],
+            //     zoom: 11,
+            //     maxBounds: bounds,
+            //     layers: [],
+            //     worldCopyJump: false,
+            //     crs: L.CRS.EPSG3857,
+            //     zoomControl: true,
+            //     });
+        
+            
+            
+            // var tile_layer_a8e0bcfb3b144fbb9ad39bbd33882c45 = L.tileLayer(
+            //     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            //     {
+            //     "attribution": null,
+            //     "detectRetina": false,
+            //     "maxNativeZoom": 18,
+            //     "maxZoom": 18,
+            //     "minZoom": 0,
+            //     "noWrap": false,
+            //     "opacity": 1,
+            //     "subdomains": "abc",
+            //     "tms": false
+            //     }).addTo(map_8a88fc9429fb456ba2bc8f0700debb54);
+
+    </script>
+    
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

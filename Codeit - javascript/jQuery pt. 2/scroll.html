@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script>
+
+	// ex)
+	$(window).on('scroll', function() {
+		console.log($(window).scrollTop());
+	})
+
+	// opacity : 투명도 결정
+	// height: 선택된 요소의 높이
+	// 사이트 맨 위에 있을 때 : scrollTop = 0
+	// 1 - 0 / 200 = 1 (불투명)
+	// 사이트 반 정도 왔을 때 : scrollTop = 100
+	// 1 - 100 / 200 = 0.5 (반투명)
+	$('.top').css('opacity', 1 - $(window).scrollTop()
+		/ $('.top').height());
+
+	// 버튼 눌렀을 때 사이트 맨 위로 올라오게!
+	$(window).scrollTop(0);
+
+	$('.go-to-top').on('click', function() {
+		// $(window).scrollTop(0); // 애니메이션 없음;;
+
+		// animate(a, b) => a: 가고 싶은 위치, b : 가는데 걸리는 시간
+		$('html, body').animate({scrollTop: 0}, 500);
+
+	})
+
+	// each 반복문
+	
+	$('.card') // card 클래스 24개 존재
+	$('.card').each(function(){ //각 card 요소에 대해 function 수행
+		console.log($(this).text); // this : 객체
+	});
+
+</script>
+
+</body>
+</html>

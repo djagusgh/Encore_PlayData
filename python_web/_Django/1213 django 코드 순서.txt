@@ -1,0 +1,77 @@
+﻿<12.13 -   Django 시작!>
+$ conda install django
+
+폴더 만들고 싶은 경로 들어가서(py_projects)
+$mkdir _Django
+$cd _Django
+$django-admin startproject django1
+$ cd django1
+$ python manage.py runserver
+브라우저로 http://127.0.0.1:8000 테스트
+
+- DB 생성
+$ python manage.py migrate # 확인해보면 table 11개 생성 ㄷㄷ
+
+- 슈퍼유저 생성
+$ python manage.py createsuperuser # 사용자 이름 : admin, 이메일 : admin@aaa.com 비밀번호 : admin
+-- http://127.0.0.1:8000/admin -> 로그인 창 -> admin/admin 입력 -> 관리자 창
+-- 사용자 추가 : hong, wndtks1357
+
+- 앱 추가 : polls 폴더 생성됨
+
+
+$ python manage.py startapp polls
+
+-- 0) 실행 후 안쪽 django1 폴더 내 settings.py INSTALLED_APPS 리스트(33번 줄) 에 'polls',를  추가(쉼표 포함해서 쓰기!)
+-- 1) 실행 후 polls/models.py에 코드 추가 
+from django.db import models
+
+# Create your models here.
+# Class 설계시 테이블이 됨 ..????
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self): # admin 창에서 이 함수 없으면 object로 표시됨
+        return self.question_text
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.choice_text
+
+-- 2) polls/admin.py 
+from django.contrib import admin
+from .models import Question, Choice
+
+admin.site.register(Question)
+admin.site.register(Choice)
+
+-- 3) cmd 창
+$python manage.py makemigrations (SQL create table 준비)
+$python manage.py migrate (실제 create 실행)
+
+-- 4) 브라우저 확인
+
+
+ ------------------
+장고 폴더 ->
+django1 폴더 2개 생김
+바깥쪽 -> 전체 프로젝트 정보
+안쪽 -> 설정 정보 담고 있음
+-------------------
+- 초기 설정
+안쪽 django1폴더 
+	1. settings.py
+		106번째 줄부터 
+		LANGUAGE_CODE = 'ko-kr'
+		TIME_ZONE = 'Asia/Seoul' 로 수정!
+
+- 장고도 코드 수정되면 자동으로 웹에 반영됨(Flask debug 모드 true)
+- 장고 : default로 sqlite 사용
+
+	

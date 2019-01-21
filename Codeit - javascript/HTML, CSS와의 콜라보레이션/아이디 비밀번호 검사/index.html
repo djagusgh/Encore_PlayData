@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로그인</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <div class="login-form">
+    <form>
+      <input type="text" name="email" id="email-input" class="text-field" placeholder="아이디"><br>
+      <input type="password" name="password" id="password-input" class="text-field" placeholder="비밀번호"><br>
+      <input type="submit" value="로그인" id="submit-btn">
+    </form>
+
+    <div class="links">
+      <a href="#">비밀번호를 잊어버리셨나요?</a>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+    // 여기에 코드를 작성하세요.
+    // oninput 사용 시, <input> 태그에 입력된 내용이 바뀔 때마다 이벤트 핸들러 실행
+
+    $('#email-input').on('input', checkBlank);
+    $('#password-input').on('input', checkBlank);
+
+    function checkBlank() {
+      var idValue = $('#email-input').val();
+      var pwdValue = $('#password-input').val();
+
+      if (idValue === "" || pwdValue === ""){
+        // $('#submit-btn').attr('disabled', 'disabled'); // 버튼 비활성화
+        $('#submit-btn').css('background-color', '#9B9B9B'); // 버튼 색 변화
+      } else if (idValue != "" && pwdValue != ""){ // 그냥 else로 해도 됨
+
+        // $('#submit-btn').attr('disabled', false); // 버튼 활성화
+        $('#submit-btn').css('background-color', '#1BBC9B');
+      }
+
+    }
+
+
+
+  </script>
+</body>
+</html>

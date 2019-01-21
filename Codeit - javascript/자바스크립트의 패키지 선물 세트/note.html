@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+// 1. Math 정리 노트
+
+console.log(Math.abs(-10));
+console.log(Math.abs(10));
+
+// 최댓값
+console.log(Math.max(2, -1, 4, 5, 0));
+
+// 최솟값
+console.log(Math.min(2, -1, 4, 5, 0));
+
+// 거듭제곱
+console.log(Math.pow(2, 3));
+console.log(Math.pow(5, 2));
+
+// 제곱근
+console.log(Math.sqrt(25));
+console.log(Math.sqrt(49));
+
+// 반올림
+console.log(Math.round(2.3));
+console.log(Math.round(2.4));
+console.log(Math.round(2.49));
+
+console.log(Math.round(2.5));
+console.log(Math.round(2.6));
+
+// 버림과 올림
+console.log(Math.floor(2.4));
+console.log(Math.floor(2.49));
+console.log(Math.floor(2.8));
+
+console.log('-');
+
+console.log(Math.ceil(2.4));
+console.log(Math.ceil(2.49));
+console.log(Math.ceil(2.8));
+
+// 난수(Random)
+console.log(Math.random());
+
+///////////////////////////////
+
+// 2. String 정리 노트
+var str = 'Codeit';
+console.log(str.length);
+
+// 특정 인덱스의 문자 받아오기
+console.log(str.charAt(2));
+
+// 문자열 안에서 다른 문자열 검색
+// indexOf
+/*
+1. 만약 포함되어 있으면, 문자열 시작되는 문자의 인덱스 리턴
+2. 포함되어 있지 않다면, -1 출력
+3. 여러 번 포함되어 있으면, 처음 발견된 인덱스가 리턴됩니다.
+*/
+
+var str = "Hello World!";
+
+console.log(str.indexOf('e'));
+console.log(str.indexOf('z'));
+console.log(str.indexOf('ello'));
+console.log(str.indexOf('o'));
+
+// 반대쪽에서 찾기 - lastIndexOf
+
+var str = 'Hello World!';
+
+console.log(str.indexOf('o'));
+console.log(str.lastIndexOf('o'));
+
+// 대소문자 변환
+// 대문자로 바꾸기
+var str = 'Codeit';
+console.log(str.toUpperCase());
+
+// 소문자로 바꾸기
+var str = 'Codeit';
+console.log(str.toLowerCase());
+
+// 문자열 자르기
+// 시작 지점과 끝 지점으로 자르기
+var str = "Hello World!";
+
+console.log(str.substring(2, 5)); // llo
+console.log(str.substring(2)); // llo World!
+
+// 시작 지점과 길이로 자르기
+var str = 'Hello World!';
+console.log(str.substr(2, 5)); // llo w
+
+// 앞 뒤의 공백을 없애줌 
+var str = '     Hello World!      ';
+console.log(str.trim())
+
+///////////////////////////////
+// 3. Array 정리 노트
+///////////////////////////////
+
+// 배열의 길이 - length 
+
+var brands = ['Apple', 'Coca-cola', 'Starbucks']
+console.log(brands.length);
+
+// 배열에서 특정 값 찾기
+// 문자열에서의 indexOF와 동일!
+console.log(brands.indexOf('Starbucks'));
+console.log(brands.indexOf('Kakao'));
+
+// 배열에 값 추가
+
+var brands = ['Apple', 'Coca-Cola', 'Starbucks'];
+// array.push(item1) : item1이 array 배열의 끝에 추가
+brands.push('Kakao');
+console.log(brands);
+
+// array.push(item1, item2, item3) : item1, item2, item3이 array 배열의
+// 끝에 순서대로 추가!
+brands.push('Samsung', 'LG', 'Facebook');
+console.log(brands);
+
+// 배열에서 값 빼기
+// array.pop() array의 마지막 요소가 배열에서 빠지고, 그 마지막 요소가 리턴됨 
+var brands = ['Apple', 'Coca-Cola', 'Starbucks'];
+
+var lastBrand = brands.pop();
+
+console.log(lastBrand);
+console.log(brands);
+
+// 배열을 문자열로 바꾸기
+var brands = ['Apple', 'Coca-Cola', 'Starbucks'];
+console.log(brands.join());
+
+// 값들 사이에 들어가는 쉼표가 마음에 들지 x 
+// -> 파라미터로 쉼표를 대체할 문자열 넣어주기!
+console.log(brands.join('###'));
+
+
+///////////////////////////////
+// 4. Date 정리 노트
+///////////////////////////////
+
+// 객체로 받아와야 됨
+var date = new Date();
+
+// 1988년 6월 11일 5시 25분 30초
+var date1 = new Date('June 11, 1988 05:25:30');
+var date2 = new Date('1988-06-11T05:25:30');
+
+// 1999년 12월 15일 (날짜만)
+var date3 = new Date('1999-12-15');
+var date4 = new Date('12/15/1999');
+var date5 = new Date('December 15 1999');
+var date6 = new Date('Dec 15 1999');
+
+// 날짜 정보 받아오기
+
+var date = new Date('June 11, 1988 05:25:30');
+
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+console.log(date.getDay());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+console.log(date.getMilliseconds());
+console.log(date.toString());
+console.log(date.toLocaleString());
+console.log(date.toLocaleDateString());
+console.log(date.toLocaleTimeString());
+
+// getTime : 1970년 1월 1일 자정으로부터 몇 ms?
+
+var date = new Date('June 11, 1988 05:25:30');
+console.log(date.getTime() + 'ms');
+console.log(date.getTime()/1000 + '초');
+console.log(date.getTime()/1000/60 + '분');
+console.log(date.getTime()/1000/60/60 + '시간');
+
+</script>
+</body>
+</html>

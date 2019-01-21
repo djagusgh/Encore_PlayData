@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Launchpad</title>
+    <meta charset="utf-8" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="pad">
+      <img src="images/pad.png" width="700" height="570">
+      <button id="play-btn">
+        <img src="images/play.png" width="50" height="50">
+      </button>
+      <button id="stop-btn">
+        <img src="images/stop.png" width="50" height="50">
+      </button>
+
+      <div class="cell-container">
+        <div class="cell green" id="cell1">
+          <div class="key">1</div>
+          <div class="instrument">Kick</div>
+        </div>
+
+        <div class="cell blue" id="cell2">
+          <div class="key">2</div>
+          <div class="instrument">Closed<br>Hi-hat</div>
+        </div>
+
+        <div class="cell blue" id="cell3">
+          <div class="key">3</div>
+          <div class="instrument">Open<br>Hi-hat</div>
+        </div>
+
+        <div class="cell red" id="cell4">
+          <div class="key">4</div>
+          <div class="instrument">Clap</div>
+        </div>
+
+        <div class="cell red" id="cell5">
+          <div class="key">5</div>
+          <div class="instrument">Snap</div>
+        </div>
+
+        <div class="cell blue" id="cell6">
+          <div class="key">6</div>
+          <div class="instrument">Crash</div>
+        </div>
+
+        <div class="cell green" id="cell7">
+          <div class="key">7</div>
+          <div class="instrument">Tom 1</div>
+        </div>
+
+        <div class="cell green" id="cell8">
+          <div class="key">8</div>
+          <div class="instrument">Tom 2</div>
+        </div>
+
+        <div class="cell blue" id="cell9">
+          <div class="key">9</div>
+          <div class="instrument">Tambourine</div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      // 여기에 코드를 입력하세요.
+
+      // 원음
+      var audioFile = new Audio('audio/audio/loop.mp3');
+
+      // 드럼 소리들 담는 리스트
+      var drumFiles = [new Audio('audio/audio/01_kick_drum.wav'),
+      new Audio('audio/audio/02_closed_hihat.wav'),
+      new Audio('audio/audio/03_open_hihat.wav'),
+      new Audio('audio/audio/04_clap.wav'),
+      new Audio('audio/audio/05_snap.wav'),
+      new Audio('audio/audio/06_crash.wav'),
+      new Audio('audio/audio/07_tom1.wav'),
+      new Audio('audio/audio/08_tom2.wav'),
+      new Audio('audio/audio/09_tambourine.wav')];
+
+
+      // play, stop 버튼 클릭시 음악 재생, 멈춤
+      $('#play-btn').on('click', playMusic); 
+      $('#stop-btn').on('click', stopMusic);
+
+      // 키보드 누를 때마다 event 실행!
+      $(document).on('keydown', addPlaying);
+      // 키보드 뗄 때마다 event 실행!
+      $(document).on('keyup', subPlaying);
+      
+      function playMusic() {
+        audioFile.play();
+      }
+
+      function stopMusic() {
+        audioFile.pause();
+        audioFile.currentTime = 0;
+      }
+
+      function playDrum(order, onOff){ // order : 몇번째, // onOff (1 : 재생, 0: 멈춤)
+        if (onOff == 1) { // 음악 재생
+          drumFiles[order].play();
+        } else { // 음악 멈춤
+          drumFiles[order].pause();
+          drumFiles[order].currentTime = 0;
+        }
+        
+      }
+
+
+      function addPlaying(event) {
+        if (Number(event['key']) >= 1 && Number(event['key']) <= 9) {
+          $('#cell' + event['key']).addClass('playing');
+          playDrum(Number(event['key']) - 1, 1);
+        } 
+      }
+
+      function subPlaying(event) {
+        if (Number(event['key']) >= 1 && Number(event['key']) <= 9) {
+          $('#cell' + event['key']).removeClass('playing');
+          playDrum(Number(event['key']) - 1, 0);
+        }
+      }
+
+      /////////// 해설 ////////////
+
+      // // loop 틀기
+      // var loop = new Audio('audio/audio/loop.mp3');
+
+      // $('#play-btn').on('click', function(){loop.play()});
+      // $('#stop-btn').on('click', function(){
+      //   loop.pause();
+      //   loop.currentTime = 0;
+      // })
+
+      // // 키보드
+      // $(document).on('keydown', function(event){
+      //   if(Number(event.key) >= 1 && Number(event.key) <= 9){
+      //     $('#cell' + event.key).addClass('playing');
+      //     var cur = audioFile[Number(event.key) - 1]
+      //     cur.play();
+      //   }
+      // }) // 'keydown'
+
+      // $(document).on('keyup', function(event){
+      //   $('#cell').removeClass('playing');
+      // })
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>방명록 리스트</h1>
+    <a href="writeform">글 남기기</a><br><br>
+    <table width="400" border="1">
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+        </tr>
+        {% for g in guests %}
+        <tr>
+            <td>{{g.title}}</td>
+            <td>{{g.content}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[ AWS deep learning GPU 머신 셋팅 ]
+
+1. aws.amazon.com 로그인 > EC2
+
+2. GPU EC2 생성
+  [인스턴스 시작] > 스크롤 > Deep Learning AMI (Ubuntu) Version 20.0 > 선택 > [검토 및 시작]
+  > 키페어 다운로드(~.pem)
+
+3. ~.pem > ~.ppk 변환
+  puttygen.exe 실행 > Conversions > Import key > ~.pem 선택 > [Save private key] > ~.ppk 저장
+
+4. putty 로 접속
+  putty.exe 실행 > Host Name : ubuntu@54.180.79.117 > 
+  Connection > SSH > Auth > [Browse..] > ~.ppk > [열기] > [Open] >
+  Putty Alert 시 : [예]
+
+5. 딥러닝 관련 설정
+  $ source activate tensorflow_p36
+  # 주피터 노트북 설정
+  $ ipyhon
+    In [1]: from notebook.auth import passwd
+    In [2]: passwd()
+    Enter password:
+    Verify password:
+    Out[2]: 'sha1:00c6190b482c:cc04f1b9c4d289f6deda0fb7134f127645a7aa90'
+    exit
+  # 주피터 설정 파일에 설정
+  $ cd .jupyter
+  $ nano jupyter_notebook_config.py
+  # 아래 내용을 입력!!!
+  c = get_config()
+  c.NotebookApp.password=u'sha1:00c6190b482c:cc04f1b9c4d289f6deda0fb7134f127645a7aa90'
+  c.NotebookApp.ip='*'
+  c.NotebookApp.port_retries=8888
+  c.NotebookApp.open_browser=False
+  c.NotebookApp.notebook_dir=u'/home/ubuntu/workspace'
+  $ cd ..
+  $ mkdir workspace
+  # 주피터 노트북 실행
+  $ jupyter notebook
+
+  # aws.amazon.com 콘솔에서 8888 포트를 열어줘야 됨!!!
+  # 포트 여는 법
+	ec2 인스턴스 관리 페이지 -> 해당 ec2의 맨 오른쪽 보안그룹 -> 인바운드
+	-> 규칙 추가 (프로토콜 TCP, 포트범위 8888, 소스 : 위치 무관 , 설명 : jupyter (안써도 됨)  )
+	jupyter 들어가서 환경: 그냥 python3로 
+
+
+6. 내 컴퓨터에서 브라우저로 http://54.180.79.117:8888 로 접속
+  # 끗

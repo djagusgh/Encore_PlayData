@@ -80,7 +80,7 @@
 }
 
 #encore {
-    font-size: 42px;
+    font-size: 30px;
     text-align: center;
     font-family: "Pro";
     
@@ -94,6 +94,54 @@
     font-size: 32px;
 }
 
+.login-form {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 340px;
+    background-color: #EEEFF1;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.text-field {
+
+    font-size : 14px;
+    width : 100%;
+    border : none;
+    border-radius : 5px;
+    padding : 10px;
+    margin-bottom : 10px;
+}
+
+.submit-btn {
+
+    font-size: 14px;
+    background-color: #9B9B9B;
+    color: white;
+    width : 100%;
+    border-radius: 5px;
+    padding : 10px;
+    border : none;
+
+}
+
+.submit-btn:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+
+}
+
+.links {
+    margin-top : 30px;
+    text-align: center;
+   /* padding: 0px 0px 20px 0px; */
+}
+
+.links a {
+    font-size: 12px;
+    color : #9B9B9B;
+}
 
 
 .footer {
@@ -113,10 +161,20 @@
 }
 
 .fb_twit {
-    text-align:center;
+    text-align: center;
 }
 .fb_twit img {
     width: 25px;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+@media(min-width: 768px) {
+
+    #encore {
+        font-size: 42px;
+        }
+    
+
+
 }

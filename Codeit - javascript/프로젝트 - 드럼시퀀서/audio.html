@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audio Player</title>
+  <meta charset="utf-8" />
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<button id="playBtn">Music Start</button>
+<button id="stopBtn">STOP</button>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script> 
+var audioFile = new Audio("https://d34x6xks9kc6p2.cloudfront.net/540997b0-a35f-4b69-86d6-b1c925c4a264/540997b0-a35f-4b69-86d6-b1c925c4a264.mp3");
+
+function playMusic() {
+    audioFile.play();
+}
+
+function stopMusic() {
+    audioFile.pause();
+    audioFile.currentTime = 0;
+}
+
+$('#playBtn').on('click', playMusic);
+$('#stopBtn').on('click', stopMusic);
+</script> 
+
+</body>
+</html>

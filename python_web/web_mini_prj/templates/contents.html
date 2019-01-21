@@ -30,8 +30,15 @@
     <title>내용</title>
 </head>
 <body>
+    <!-- import jQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <!-- ---------------------- -->
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="main.html"> 별점 카페 <span id="com">.com</span> </a>
+                <a class="navbar-brand" href="/"> 별점 카페 <span id="com">.com</span> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,11 +54,11 @@
                   </ul>
               
                   <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#" >회원 가입<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="login.html" target="_self">로그인</a>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="join.html" ><span class="sr-only">(current)</span></a>
+                    </li> -->
+                     <li class="nav-item">
+                      <a class="nav-link" href="/logout" onclick = "alert('성공적으로 로그아웃 하셨습니다.');">로그 아웃</a>
                     </li>
                   </ul>
                   
@@ -59,84 +66,115 @@
               </nav>
 
 
-    <!-- 추가, 변경, 삭제 버튼 담는 부분 -->
+    <!-- 추가, 변경, 삭제 버튼 담는 부분
     <div class="button-container">
         <button> 추가 </button>
         <button> 변경 </button>
         <button> 삭제 </button>
+    </div> -->
 
-    </div>
 
     <!-- 서초구 지도 들어간 클래스 -->
-    <div class ="map-container">
-            <div class="folium-map" id="map_8a88fc9429fb456ba2bc8f0700debb54" ></div>
-
-    </div>
-    <!-- 내용 담는 클래스-->
+    <!-- <div class ="map-container">
+        <div class="folium-map" id="map_8a88fc9429fb456ba2bc8f0700debb54" ></div>
+    </div> -->
 
 
-    <div class="contents-container">
-        <div class="inner-container1">
-            <h2> 1.  맘모스 커피 </h2>
-            <img src= "../static/sample1.jpg">
+        <!-- 내용 담는 클래스-->
 
+        {% for cafe in cafes %}
+        
+        <div class="card" style="width: 50%; margin-left:auto; margin-right: auto; margin-bottom: 30px;">
+            <div class="card-body">
+            <form action = "#"
+            <h5 class="card-title" name="each_cafe_name">{{cafe.num}}.  {{cafe.CAFE_NAME}}</h5>
+
+                <table class="tg">
+                  <tr>
+                    <td class="tg-0pky">장소</td>
+                    <td class="tg-0pky">{{cafe.ADDRESS}}</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">평점</td>
+                    <td class="tg-0pky">{{cafe.STAR_RATING}} / 5 점</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">대표 메뉴</td>
+                    <td class="tg-0pky">{{cafe.MENU}}</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">전화번호</td>
+                    <td class="tg-0pky">{{cafe.PHONE_NUMBER}}</td>
+                  </tr>
+                </table>
+            <p>
+                <a href="/contents/review_write/{{cafe.num}}/{{cafe.CAFE_NAME}}" class="btn btn-primary">후기 작성</a>   
+                <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapse{{cafe.num}}" role="button" aria-expanded="false" aria-controls="multiCollapse{{cafe.num}}">후기</a>
+            </p>
+            
+            <div class="row">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapse{{cafe.num}}">
+                    <div class="card card-body">
+                        <table>
+                            <tr>
+                                <th> 닉네임 </th>
+                                <th> 평점 </th>
+                                <th> 리뷰 </th>
+                            </tr>
+                            {% for review in reviews if review.num == cafe.num %}
+                            <tr>
+                                <td> {{review.NICK_NAME}}</td>
+                                <td> {{review.SCORE}} </td>
+                                <td> {{review.REVIEW}} </td>
+                            </tr>
+                            {% endfor %}
+                        </table>     
+                    </div>
+                    </div>
+                </div>
+            </div>    
+            
         </div>
-        <div class="inner-container2">
-            <p id="writer"> 엄현호 </p>
-            <p id="location">서초구 반포대로 28길 33 1층 </p>
-            <p id= "score"> 점수</p>
-            <p id="menu">대표 메뉴 : 아메리카노(3000), 카페라테(4000) </p>
-            <p id="hugi"> 간단 후기 : 싸지만 맛있지는 않음 </p>
-            <p id="good"> 좋아요 : 3개 </p>
-
         </div> 
+        {% endfor %}
 
-    </div>
+        <script>
+        
+        
+            // var map_8a88fc9429fb456ba2bc8f0700debb54 = L.map(
+            //     'map_8a88fc9429fb456ba2bc8f0700debb54', {
+            //     center: [37.5502, 126.982],
+            //     zoom: 11,
+            //     maxBounds: bounds,
+            //     layers: [],
+            //     worldCopyJump: false,
+            //     crs: L.CRS.EPSG3857,
+            //     zoomControl: true,
+            //     });
+        
+            
+            
+            // var tile_layer_a8e0bcfb3b144fbb9ad39bbd33882c45 = L.tileLayer(
+            //     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            //     {
+            //     "attribution": null,
+            //     "detectRetina": false,
+            //     "maxNativeZoom": 18,
+            //     "maxZoom": 18,
+            //     "minZoom": 0,
+            //     "noWrap": false,
+            //     "opacity": 1,
+            //     "subdomains": "abc",
+            //     "tms": false
+            //     }).addTo(map_8a88fc9429fb456ba2bc8f0700debb54);
 
-    <div class="contents-container">
-        
-    </div>
-
-    <div class="contents-container">
-        
-    </div>
-    <script>    
-    
-    
-            var bounds = null;
-        
-    
-        var map_8a88fc9429fb456ba2bc8f0700debb54 = L.map(
-            'map_8a88fc9429fb456ba2bc8f0700debb54', {
-            center: [37.5502, 126.982],
-            zoom: 11,
-            maxBounds: bounds,
-            layers: [],
-            worldCopyJump: false,
-            crs: L.CRS.EPSG3857,
-            zoomControl: true,
-            });
-    
-        
-        
-        var tile_layer_a8e0bcfb3b144fbb9ad39bbd33882c45 = L.tileLayer(
-            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            {
-            "attribution": null,
-            "detectRetina": false,
-            "maxNativeZoom": 18,
-            "maxZoom": 18,
-            "minZoom": 0,
-            "noWrap": false,
-            "opacity": 1,
-            "subdomains": "abc",
-            "tms": false
-    }).addTo(map_8a88fc9429fb456ba2bc8f0700debb54);
     </script>
+    
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>    
 </body>
 </html>

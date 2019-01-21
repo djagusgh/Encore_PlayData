@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Couple Story</title>
+    <meta charset="utf-8" />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img id="logo" src="images/logo.png" width="157">
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <!-- 만난지 며칠? -->
+        <h2>만난지 <span id="day-count">00</span>일째</h2>
+
+        <div class="img-row">
+          <img src="images/female.png" width="148">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/heart.png" width="16">
+          <img src="images/dot.png" width="8">
+          <img src="images/dot.png" width="8">
+          <img src="images/male.png" width="148">
+        </div>
+
+        <!-- 만나기 시작한 날짜 -->
+        <div class="date-row">
+          <label for="start">시작일</label>
+          <input type="date" name="start" id="start">
+        </div>
+
+        <!-- 며칠됐는지 계산하기! -->
+        <button id="calculate">결과 보기</button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      // 코드를 입력하세요!
+      
+      $('#calculate').on('click', checkDate);
+
+      function checkDate(){
+
+        var today = new Date(); // 오늘 날짜
+        var startDate = $('#start').val(); // 사귀기 시작한 날
+
+      	if (startDate === ""){
+      		alert('시작 날짜를 입력해주세요!');
+        } else {
+          startDate = new Date(startDate);
+          startDate = startDate.getTime()/1000/60/60/24 // 1970년 기준 몇 일 지났는지
+          today = today.getTime()/1000/60/60/24 // 1970년 기준 몇 일 지났는지
+
+          if (Math.ceil(startDate) > Math.ceil(today)){
+            alert('잘못 입력하셨습니다. 다시 입력해주세요.');
+          } else {
+            var loveDates = Math.ceil(today - startDate) // startDate, today 같은 날이면 1일로 계산
+          }
+        }
+        $('#day-count').text(loveDates)
+      }
+
+      //////////////////// 해설 ////////////////////
+
+      // // 이벤트 등록
+      // $('#calculate').on('click', calculateDate);
+
+      // function calculateDate(){
+
+      //   // Date 객체 만들기
+      //   var now = new Date();
+      //   var startDate = new Date($('#start').val());
+
+      //   // 날짜 차이 계산
+      //   var betweenDays(now.getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24;
+
+      //   // 계산한 날짜를 페이지에 표시
+      //   $('#day-count').text(Math.floor(betweenDays) + 1);
+
+      //   // 잘못된 입력일 경우 메시지 출력
+      //   if ($('#start').val() == ''){
+      //     alert('날짜를 입력해주세요.');
+      //   }
+
+      // }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title> 요소 이동하기</title>
+</head>
+<body>
+	<button id="hello"> Hello Codeit! </button>
+
+	<ul id="todo-list">
+		<li id="cleaning" class="item"> 청소 </li>
+		<li id="coding" class="item important"> 코딩 </li>
+		<li id="homework" class="item"> 숙제 </li>
+		<li id="movie" class="item"> 영화 </li>
+		<li id="vitamin" class="item"> 비타민 </li>
+		<li id="gym" class="item"> 헬스장 </li>
+		<li id="reading" class="item important">독서</li>
+
+	</ul>
+
+   <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+	
+	<script>
+
+		// 요소 추가
+		$('#cleaning').before('<li class="item">피아노</li>');
+		// 요소 변경 - before 자리에 이미 있는 id, 클래스를 넣으면 됨
+		$('#cleaning').before($('#movie')); // movie 앞에 cleaning
+		$('#cleaning').after($('#movie'));
+		$('#todo-list').append($('movie')); // movie : 맨 뒤로 이동
+		$('#todo-list').prepend($('movie')); // movie : 맨 앞으로 이동
+		$('#todo-list').append($('.important')); // important 포함하는 클래스를 모두 맨 뒤로
+		$('#todo-list').prepend($('.important')); // important 포함하는 클래스를 모두 맨 앞으로
+
+
+		// jQuery : '선택' 과 '동작'
+		// css 선택자 외에 jQuery에서 제공하는 '선택' 방법 있음
+
+		// 1. filter
+		// ex) $('button').filter('.color-3').text('SELECTED!');
+		// -> 모든 button 태그들 중 color-3 클래스를 가지고 있는 요소만 추려내 text를 변경!
+
+		// 2. not : filter의 반대!
+		// ex) $('button').not('.color-3').text('SELECTED!');
+
+		// 3. eq : 선택된 요소들 중 n번째 요소 하나만 골라내기
+		// ex) $('button').eq(1).text('SELECTED!');
+		// -> button들 중 2번째 요소만 골라 text를 바꿔줌(0부터 시작 주의 )
+
+		// 4. parent
+		// ex) $('#btn-1').parent().css('background-color', 'black');
+		// -> btn-1의 부모 요소에 css를 적용
+
+		// 5. children
+		// ex) -> $('#box-1').children().css('background-color', 'black');
+		// -> box-1의 자식 요소에 css를 적용
+
+		// 6. find
+		// ex) -> $('#box-1').find('.color-2').css('background-color', 'black');
+		// -> box-1의 자녀 요소 중 color-2 클래스가 있는 요소의 css를 적용
+		// children()은 직속 자녀만 찾아주는 반면, find는 요소 아래의 모든 것을 찾아줌.
+
+
+		// 7. siblings : 선택된 요소의 이웃 요소들을 골라줌
+		// ex) -> $('#btn-1').siblings().text('SELECTED!');
+		// btn-1의 모든 이웃 요소의 text를 변경해줌!
+		// siblings() 안에 조건을 넣을 경우, filter 역할도 함께함!
+
+
+
+
+
+	</script>
+
+</body>

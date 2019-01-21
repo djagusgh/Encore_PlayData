@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 연습 </title>
+</head>
+<body>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+	//// 1. 클래스 관련 ////
+
+	// item에 header라는 클래스 추가 
+	$('#item').addClass('header');
+	// item에 header라는 클래스 제거
+	$('#item').removeClass('header');
+	// item에 header라는 클래스 없으면 추가, 있으면 제거
+	$('#item').toggleClass('header');
+	// item에 header라는 클래스가 있으면 true, 없으면 false 리턴
+	$("#item").hasClass('header');
+
+	//// 2. 속성 관련 ////
+
+	// 이미지 태그의 src 속성 받아오기
+	$('img').attr('src');
+	// 이미지 태그의 src 속성 지정하기
+	$('img').attr('src', 'images/logo.png');
+	// h1 태그의 텍스트 받아오기
+	$('h1').text();
+	// h1 태그에 텍스트 지정하기
+	$('h1').text('Hello World!');
+	// h1 태그에 HTML 텍스트 지정하기
+	$('h1').html('<b>Hello World!</b>');
+
+	//// 3. 스타일 관련 ////
+
+	// item의 font-weight를 bold로 지정하기
+	$("#item").css('font-weight','bold');
+
+	// item의 background-color 가져오기
+	$("#item").css('background-color');
+</script>
+
+</body>
+</html>

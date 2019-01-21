@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<title>JavaScript Intro</title>
+</head>
+<body>
+
+<script>
+
+function restoreArray(arr) {
+	var returnArr = [];
+ 	
+ 	for (var each of arr) {
+ 		// 순서를 뒤바꿔 returnArr에 값 추가
+ 		for (var i = each.length - 1; i >= 0; i --){
+ 			returnArr.push(each[i])
+ 		}
+ 	}
+	// 코드를 작성해주세요.
+	return returnArr;
+}
+
+</script>	
+
+</body>
+</html>

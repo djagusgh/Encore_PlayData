@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Animation</title>
+</head>
+<body>
+
+
+
+<!-- 'Easing'을 적용하기 위한 jQuery 코드 -->
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+	// ready: html이 준비되면 시작하기!, 일회성 함수 -> 익명함수로 
+	// ex)
+	$(document).ready(function(){
+		// 코드
+	})
+
+
+	// div 태그를 left: 250px 만큼 이동!
+	$("div").animate({left: '250px'});
+
+	// 여러 CSS 동시에 적용하기
+	$("div").aniamte({left: '250px', opacity: '0.5'});
+
+	// 여러 CSS 순서대로 적용하기
+	$("div").animate({left: '250px'});
+	$("div").animate({opacity: '0.5'});
+	// => left 250px만큼 이동 후 opacity: 0.5가 적용!
+
+	// CSS 반복 적용하기
+	$("div").animate({left: '+=250px'});
+	// => 버튼을 누를 때마다 div 태그가 left: 250px만큼 이동!
+
+	// CSS 적용 속도 조절하기
+	$("div").animate({left: '250px'}, 1000);
+
+	// 애니메이션 이펙트 적용하기 (이펙트 : Easing)
+	// https://code.jquery.com/ui/
+	$("div").animate({left: '250px'}, 1000, 'easeOutElastic');
+
+</script>
+
+</body>
+</html>

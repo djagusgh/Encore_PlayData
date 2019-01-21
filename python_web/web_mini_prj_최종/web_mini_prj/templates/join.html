@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> 회원가입 페이지 </title>
+    <meta charset = "utf-8">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+   <link rel ="stylesheet" href="../static/join_styles.css">
+   <link href ="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"> 별점 카페 <span id="com">.com</span> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">회원가입</a>
+        </li> -->
+      </ul>
+  
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="join.html" >회원 가입<span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="/" target="_self">로그인</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+
+  <p class="sign"> 회원 가입 </p>
+
+  <div class="join-form">
+    <form action="/join" method="POST">
+      <!-- ID -->
+      <div class="form-group">
+        <label for="exampleFormControlInput1">ID</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="id">
+      </div>
+      <!-- PW -->
+      <div class="form-group">
+          <label for="exampleFormControlInput2">PW</label>
+          <input type="password" class="form-control" id="exampleFormControlInput2" name="pw">
+      </div>
+      <!-- NickName -->
+      <div class="form-group">
+          <label for="exampleFormControlInput3">NickName</label>
+          <input type="text" class="form-control" id="exampleFormControlInput3" name="nick">
+      </div>
+      <!-- Birth -->
+      <div class="form-group">
+          <label for="exampleFormControlInput4">Birth</label>
+          <!-- <input type="text" class="form-control" id="exampleFormControlInput4">
+      </div>
+
+      <div> -->
+        <select name="birth-year" style="height:30; width:100px;">
+          <!-- <optgroup label="YEAR"> -->
+            <option value="90">1990년</option>
+            <option value="91">1991년</option>
+            <option value="92">1992년</option>
+            <option value="93">1993년</option>
+            <option value="94">1994년</option>
+            <option value="95">1995년</option>
+          </optgroup>
+        </select>
+  
+          <select name="birth-month" style="height:30; width:100px;" >
+            <!-- <optgroup label="MONTH"> -->
+             <!-- <optgroup label="MONTH"> -->
+              <option value="01">1월</option>
+              <option value="02">2월</option>
+              <option value="03">3월</option>
+              <option value="04">4월</option>
+              <option value="05">5월</option>
+              <option value="06">6월</option>
+              <option value="07">7월</option>
+              <option value="08">8월</option>
+              <option value="09">9월</option>
+              <option value="10">10월</option>
+              <option value="11">11월</option>
+              <option value="12">12월</option>
+            </optgroup>
+          </select>
+  
+          <select name="birth-day" style="height:30; width:100px;">
+            <!-- <optgroup label="DAY"> -->
+              <option value="01">1일</option>
+              <option value="02">2일</option>
+              <option value="03">3일</option>
+              <option value="04">4일</option>
+              <option value="05">5일</option>
+              <option value="06">6일</option>
+              <option value="07">7일</option>
+              <option value="08">8일</option>
+              <option value="09">9일</option>
+              <option value="10">10일</option>
+              <option value="11">11일</option>
+              <option value="12">12일</option>
+              <option value="13">13일</option>
+              <option value="14">14일</option>
+              <option value="15">15일</option>
+              <option value="16">16일</option>
+              <option value="17">17일</option>
+              <option value="18">18일</option>
+              <option value="19">19일</option>
+              <option value="20">20일</option>
+              <option value="21">21일</option>
+              <option value="22">22일</option>
+              <option value="23">23일</option>
+              <option value="24">24일</option>
+              <option value="25">25일</option>
+              <option value="26">26일</option>
+              <option value="27">27일</option>
+              <option value="28">28일</option>
+              <option value="29">29일</option>
+              <option value="30">30일</option>
+              <option value="31">31일</option>
+            </optgroup>
+          </select>
+          </div>
+  
+  
+      <!-- sing in -->
+      <div>
+          <input type="submit" value="sign up">
+        <!-- <a href="/"><button type="button" class="sign-in-btn">Sign in</button></a> -->
+          
+      </div>
+
+
+<!-- 
+      <div>
+      <select name="birth-year" style="height:30; width:100px;" onchange="alert(this.value);">
+        <optgroup label="YEAR">
+          <option value="1">목록1</option>
+          <option value="2">목록2</option>
+          <option value="3">목록3</option>
+        </optgroup>
+      </select>
+
+        <select name="birth-year" style="height:30; width:100px;" onchange="alert(this.value);">
+          <optgroup label="YEAR">
+            <option value="1">목록1</option>
+            <option value="2">목록2</option>
+            <option value="3">목록3</option>
+          </optgroup>
+        </select>
+
+        <select name="birth-year" style="height:30; width:100px;" onchange="alert(this.value);">
+          <optgroup label="YEAR">
+            <option value="1">목록1</option>
+            <option value="2">목록2</option>
+            <option value="3">목록3</option>
+          </optgroup>
+        </select>
+        </div>
+ -->
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>

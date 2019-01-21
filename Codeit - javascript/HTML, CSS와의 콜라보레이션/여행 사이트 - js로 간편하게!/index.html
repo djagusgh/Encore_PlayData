@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Website</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <img id="logo" src="images/logo.png" width="165" height="58">
+ 
+  <div id="menu">
+    <a id="home" onclick="clickHome();">Home</a>
+    <a id="seoul" onclick="clickSeoul();">Seoul</a>
+    <a id="tokyo" onclick="clickTokyo();">Tokyo</a>
+    <a id="paris" onclick="clickParis();">Paris</a> 
+  </div>
+
+  <img id="photo" src="images/home.png" width="90%">
+
+  <script>
+    // 사진을 바꿔주는 함수
+    function clickHome() {
+      document.getElementById('photo').src = 'images/home.png';
+      makeFontBold(1);
+      // 과제 방식
+      // document.getElementById('home').style.fontWeight = 'bold';
+      // document.getElementById('seoul').style.fontWeight = 'normal';
+      // document.getElementById('tokyo').style.fontWeight = 'normal';
+      // document.getElementById('paris').style.fontWeight = 'normal';
+    }
+
+    function clickSeoul() {
+      document.getElementById('photo').src = 'images/seoul.png';
+      makeFontBold(2);
+    }
+
+    function clickTokyo() {
+      document.getElementById('photo').src = 'images/tokyo.png';
+      makeFontBold(3);
+    }
+    
+    function clickParis() {
+      document.getElementById('photo').src = 'images/paris.png';
+      makeFontBold(4);
+    }
+
+    // 폰트를 굵게 만들기
+    function makeFontBold(num) {
+      var a_tags = document.getElementsByTagName('a');
+      for (var i = 0; i < a_tags.length; i++){
+        if (i == num - 1){
+          a_tags[i].style.fontWeight = 'bold';
+        } else {
+          a_tags[i].style.fontWeight = 'normal';
+        }
+      }
+    }
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+* { box-sizing: border-box;}
+
+body {margin: 0;background-color: #DEC196;  }
+
+@font-face {src: url("BMJUA_ttf.ttf");font-family : "Jua";}
+
+@font-face {src: url("BMHANNAPro.ttf");font-family: "Pro";}
+
+@font-face {src: url("BMHANNAAir_ttf.ttf");font-family: "Air";}
+
+.navbar {font-family: "Jua";}
+
+.navbar .navbar-brand {font-size: 22px;font-family: "Jua";}
+
+.navbar #com {color: #8D4315;}
+
+.review-write-form {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 900px;
+    background-color: #EEEFF1;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-control {
+
+    font-size : 14px;
+    width : 100%;
+    border : none;
+    border-radius : 5px;
+    padding : 10px;
+    margin-bottom : 10px;
+}
+
+.submit-btn {
+
+    font-size: 14px;
+    background-color: #0D90AE;
+    color: white;
+    width : 100%;
+    border-radius: 5px;
+    padding : 10px;
+    border : none;
+
+}
+
+.submit-btn:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+
+}
