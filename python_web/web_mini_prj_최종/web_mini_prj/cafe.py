@@ -4,6 +4,7 @@ from flaskext.mysql import MySQL
 import pymysql
 import os
 
+
 mysql = MySQL(cursorclass=pymysql.cursors.DictCursor)
 app = Flask(__name__)
 app.config['MYSQL_DATABASE_USER'] = 'root'
